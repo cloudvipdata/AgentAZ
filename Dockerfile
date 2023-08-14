@@ -4,10 +4,9 @@ LABEL maintainer="Bibin Wilson <bibinwilsonn@gmail.com>"
 
 RUN mkdir terraform
 RUN cd terraform
-RUN rm -f terraform_1.5.5_linux_arm.zip
-RUN curl -O https://releases.hashicorp.com/terraform/1.5.5/terraform_1.5.5_linux_arm.zip
-RUN unzip -o terraform_1.5.5_linux_arm.zip
-RUN rm -f terraform_1.5.5_linux_arm.zip
+RUN git clone https://github.com/hashicorp/terraform.git ./ && \
+    git checkout v${TERRAFORM_VERSION} && \
+    /bin/bash scripts/build.sh
 
 # Make sure the package repository is up to date.
 RUN apt-get update && \

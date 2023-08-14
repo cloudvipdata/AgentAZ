@@ -2,6 +2,10 @@ FROM ubuntu:18.04
 
 LABEL maintainer="Bibin Wilson <bibinwilsonn@gmail.com>"
 
+RUN wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+sudo apt update && sudo apt install terraform
+
 # Make sure the package repository is up to date.
 RUN apt-get update && \
     apt-get -qy full-upgrade && \

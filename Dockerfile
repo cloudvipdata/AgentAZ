@@ -2,6 +2,8 @@ FROM ubuntu:18.04
 
 LABEL maintainer="Bibin Wilson <bibinwilsonn@gmail.com>"
 
+RUN apt-get install git
+
 RUN mkdir terraform
 RUN cd terraform
 RUN git clone https://github.com/hashicorp/terraform.git ./ && \

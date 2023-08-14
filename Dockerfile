@@ -10,3 +10,5 @@ RUN echo $PATH
 RUN unzip terraform_1.3.5_linux_amd64.zip -d /usr/local/bin
 RUN ls -l /usr/local/bin
 RUN terraform -version
+
+RUN apt-get install ca-certificates curl apt-transport-https lsb-release gnupg

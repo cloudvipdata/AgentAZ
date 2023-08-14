@@ -2,7 +2,7 @@ FROM ubuntu:18.04
 
 LABEL maintainer="Bibin Wilson <bibinwilsonn@gmail.com>"
 
-RUN RUN apk add --update git bash openssh
+RUN apt install git
 
 RUN mkdir terraform
 RUN cd terraform
